@@ -1,0 +1,7 @@
+interface:
+  display_name: "数学建模全流程"
+  short_description: "覆盖材料核验、建模验证、论文写作与最终交付的可复用工作流"
+  default_prompt: "Use $mathematical-modeling-workflow to organize and complete this mathematical modeling project."
+
+policy:
+  allow_implicit_invocation: true

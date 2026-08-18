@@ -1,0 +1,44 @@
+version: "0.1.0"
+
+project:
+  default_root: "E:\\2026数模模拟"
+  preserve_originals: true
+  output_in_separate_directory: true
+
+python:
+  preferred_executable: D:\我的资料\大一\python\.venv\Scripts\python.exe
+  expected_version: "3.13"
+  allow_network_install: false
+
+artifacts:
+  intermediate_pdf_required: false
+  final_latex_pdf_qa_required: true
+  spreadsheet_names_in_chinese: true
+  spreadsheet_headers_in_chinese: true
+  figure_names_in_chinese: true
+  paper_figure_internal_title: false
+  minimum_raster_dpi: 300
+  hash_policy: "final-and-critical-only"
+
+numbers:
+  default_decimal_places: 4
+  require_consistent_units: true
+  require_cross_artifact_consistency: true
+
+paper:
+  front_matter_max_pages: 4
+  abstract_max_pages: 1
+  abstract_focus_items_per_question: "3-4"
+  abstract_target_lines_per_question: 6
+  preprocessing_paragraph_lines: "3-4"
+  bold_items_per_paragraph: "3-5"
+  body_page_budget:
+    three_questions: 8.33
+    four_questions: 6.25
+    five_questions: 5.00
+
+validation:
+  inspect_near_perfect_fit: true
+  require_out_of_sample_evidence_when_applicable: true
+  require_positive_validation_chain: true
+  require_render_review_for_final_document: true

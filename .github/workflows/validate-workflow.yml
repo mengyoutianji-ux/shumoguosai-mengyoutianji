@@ -1,0 +1,19 @@
+name: Validate workflow repository
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Validate structure and links
+        run: python3 scripts/validate_repository.py
+      - name: Compile Python helpers
+        run: python3 -m compileall -q scripts

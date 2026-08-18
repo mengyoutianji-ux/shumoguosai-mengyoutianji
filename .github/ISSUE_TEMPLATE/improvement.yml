@@ -1,0 +1,48 @@
+name: 工作流改进建议
+description: 提交一项有证据、可验证的数学建模工作流改进
+title: "[改进] "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 当前问题
+      description: 说明现有规则或流程造成的实际问题，不要只写偏好。
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: 适用范围
+      description: 说明涉及的题型、软件、文件格式或工作阶段。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 证据
+      description: 提供可复现现象、错误信息或经过脱敏的例子。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 建议修改
+      description: 指明建议调整的文档、模板、参数或脚本。
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: 验证方式
+      description: 说明如何判断修改确实改善了工作流且没有引入回归。
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: 发布边界确认
+      options:
+        - label: 内容不包含未公开赛题材料、原始数据、个人信息或凭据。
+          required: true

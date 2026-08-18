@@ -1,0 +1,72 @@
+# Private project material
+projects/
+private/
+data/
+raw/
+outputs/
+deliverables/
+
+# Documents, media, archives, and datasets
+*.doc
+*.docx
+*.pdf
+*.m4a
+*.mp3
+*.mp4
+*.mov
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.psd
+*.zip
+*.rar
+*.7z
+*.xls
+*.xlsx
+*.sav
+*.mat
+*.npy
+*.npz
+*.pkl
+*.joblib
+*.db
+*.sqlite
+*.udb
+*.udbx
+*.smwu
+
+# Secrets and environments
+.env
+.env.*
+*.pem
+*.key
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# LaTeX and office temporary files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+~$*
+
+# Editors and OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Preserve repository-owned image assets if added later
+!assets/**/*.png
+!assets/**/*.jpg
