@@ -1,13 +1,17 @@
-version: "0.1.0"
+version: "0.2.0"
+rules_effective_date: "2026-08-24"
 
 project:
   default_root: "E:\\2026数模模拟"
   preserve_originals: true
   output_in_separate_directory: true
+  read_all_materials_before_modeling: true
+  report_blocking_ambiguities_first: true
 
 python:
   preferred_executable: D:\我的资料\大一\python\.venv\Scripts\python.exe
   expected_version: "3.13"
+  allow_system_python: false
   allow_network_install: false
 
 artifacts:
@@ -18,6 +22,7 @@ artifacts:
   figure_names_in_chinese: true
   paper_figure_internal_title: false
   minimum_raster_dpi: 300
+  preserve_editable_diagram_source: true
   hash_policy: "final-and-critical-only"
 
 numbers:
@@ -28,17 +33,48 @@ numbers:
 paper:
   front_matter_max_pages: 4
   abstract_max_pages: 1
+  abstract_preface_lines: "3-4"
+  abstract_lines_per_question:
+    three_questions: 8
+    four_questions: 6
+    five_questions: 5
   abstract_focus_items_per_question: "3-4"
-  abstract_target_lines_per_question: 6
   preprocessing_paragraph_lines: "3-4"
   bold_items_per_paragraph: "3-5"
+  table_latex_font: "\\zihao{-5}"
+  table_content_prefer_single_line: true
+  conclusion_boxed: false
+  conclusion_location: "model-results"
+  show_random_seed: false
   body_page_budget:
-    three_questions: 8.33
-    four_questions: 6.25
-    five_questions: 5.00
+    three_questions:
+      question_1: {min: 7.33, max: 8.00}
+      other_questions: {min: 7.33, max: 8.00}
+    four_questions:
+      question_1: {min: 5.50, max: 6.25}
+      other_questions: {min: 5.50, max: 5.75}
+    five_questions:
+      question_1: {min: 4.40, max: 5.25}
+      other_questions: {min: 4.40, max: 4.75}
+
+model_expression:
+  explain_each_substantive_formula: true
+  prove_conclusion_critical_conditions: true
+  keep_problem_facts_out_of_assumptions: true
+  optimization_use_braced_system: true
+
+visualization:
+  plan_figures_per_question: true
+  prefer_question_level_flowchart: true
+  prefer_schematic_for_non_data_analysis: true
+  create_animation_for_time_dependent_model_when_useful: true
+  representative_frame_layout: "2x2"
+  show_iteration_evidence_when_relevant: true
+  introduce_present_analyze_each_figure: true
 
 validation:
   inspect_near_perfect_fit: true
   require_out_of_sample_evidence_when_applicable: true
   require_positive_validation_chain: true
   require_render_review_for_final_document: true
+  require_key_proof_record: true

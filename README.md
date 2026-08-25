@@ -6,7 +6,7 @@
 
 ## 快速使用
 
-1. 阅读 [工作流总览](docs/工作流总览.md) 与 [AGENTS.md](AGENTS.md)。
+1. 从仓库根入口 [AGENTS.md](AGENTS.md) 开始；它会要求继续读取技能入口、当前版本规则和对应专题规范。
 2. 运行环境检查：
 
    ```powershell
@@ -25,7 +25,7 @@
 5. 完成后运行仓库自检：
 
    ```powershell
-   py .\scripts\validate_repository.py
+   & "D:\我的资料\大一\python\.venv\Scripts\python.exe" .\scripts\validate_repository.py
    ```
 
 ## 仓库结构
@@ -36,6 +36,7 @@
 |-- config/workflow.yml               可调整的工作流参数
 |-- docs/                              分主题规范
 |-- templates/                         新项目模板
+|-- assets/                            可编辑 draw.io 图示与 SVG 预览
 |-- scripts/                           环境检查、建项目与仓库校验
 |-- skills/mathematical-modeling-workflow/
 |                                      可调用的 Codex 技能
@@ -48,4 +49,4 @@
 
 ## 当前状态
 
-版本：`0.1.0`。当前建立了完整主流程、项目模板、仓库校验和 Codex 技能入口；尚未关联远程 GitHub 仓库。
+版本：`0.2.0`，规则生效日期为 `2026-08-24`。当前已建立根入口、版本冲突处理、完整主流程、关键证明规范、图表与动态图规范、项目模板、可编辑图示、仓库校验和 Codex 技能入口。仓库已配置 GitHub 远程地址；推送仍需单独确认发布边界和授权。

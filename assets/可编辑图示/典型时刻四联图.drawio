@@ -1,0 +1,19 @@
+<mxfile host="app.diagrams.net" version="26.0.4">
+  <diagram id="four-frames" name="典型时刻四联图">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p1" value="(a) 起始状态  t=t0" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;strokeWidth=2;fontFamily=Microsoft YaHei;fontSize=18;fontStyle=1;align=left;verticalAlign=bottom;spacingBottom=12;spacingLeft=16;" parent="1" vertex="1"><mxGeometry x="60" y="50" width="620" height="330" as="geometry" /></mxCell>
+        <mxCell id="p2" value="(b) 临界进入  t=tin" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;strokeWidth=2;fontFamily=Microsoft YaHei;fontSize=18;fontStyle=1;align=left;verticalAlign=bottom;spacingBottom=12;spacingLeft=16;" parent="1" vertex="1"><mxGeometry x="720" y="50" width="620" height="330" as="geometry" /></mxCell>
+        <mxCell id="p3" value="(c) 关键状态  t=t*" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;strokeWidth=2;fontFamily=Microsoft YaHei;fontSize=18;fontStyle=1;align=left;verticalAlign=bottom;spacingBottom=12;spacingLeft=16;" parent="1" vertex="1"><mxGeometry x="60" y="430" width="620" height="330" as="geometry" /></mxCell>
+        <mxCell id="p4" value="(d) 临界退出  t=tout" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;strokeWidth=2;fontFamily=Microsoft YaHei;fontSize=18;fontStyle=1;align=left;verticalAlign=bottom;spacingBottom=12;spacingLeft=16;" parent="1" vertex="1"><mxGeometry x="720" y="430" width="620" height="330" as="geometry" /></mxCell>
+        <mxCell id="hint1" value="在此放入同一视角、同一坐标范围的模型帧" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Microsoft YaHei;fontSize=18;fontColor=#64748B;" parent="1" vertex="1"><mxGeometry x="145" y="170" width="450" height="50" as="geometry" /></mxCell>
+        <mxCell id="hint2" value="标出首次满足判据的对象、边界与时刻" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Microsoft YaHei;fontSize=18;fontColor=#64748B;" parent="1" vertex="1"><mxGeometry x="805" y="170" width="450" height="50" as="geometry" /></mxCell>
+        <mxCell id="hint3" value="标出最大响应、最不利状态或协同交接" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Microsoft YaHei;fontSize=18;fontColor=#64748B;" parent="1" vertex="1"><mxGeometry x="145" y="550" width="450" height="50" as="geometry" /></mxCell>
+        <mxCell id="hint4" value="标出最后满足判据或过程结束的状态" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Microsoft YaHei;fontSize=18;fontColor=#64748B;" parent="1" vertex="1"><mxGeometry x="805" y="550" width="450" height="50" as="geometry" /></mxCell>
+        <mxCell id="legend" value="共用图例：对象｜轨迹｜作用区域｜目标｜临界边界" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#FFF7D6;strokeColor=#C99A2E;strokeWidth=2;fontFamily=Microsoft YaHei;fontSize=17;fontColor=#4B3A12;" parent="1" vertex="1"><mxGeometry x="360" y="800" width="680" height="55" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

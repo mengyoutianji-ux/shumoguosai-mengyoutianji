@@ -27,8 +27,21 @@ TEMPLATE_TARGETS = {
     "未解决问题.md": "00_项目管理/未解决问题.md",
     "数据预处理记录.md": "02_数据与预处理/数据预处理记录.md",
     "问题建模记录.md": "03_模型与代码/问题建模记录.md",
+    "关键证明记录.md": "03_模型与代码/关键证明记录.md",
     "结果核验表.csv": "07_验证/结果核验表.csv",
     "最终检查清单.md": "07_验证/最终检查清单.md",
+    "图表规划表.csv": "05_图表/图表规划表.csv",
+    "页面预算表.csv": "06_论文/页面预算表.csv",
+    "参考论文写作特征记录.md": "00_项目管理/参考论文写作特征记录.md",
+}
+
+ASSET_TARGETS = {
+    "建模论证闭环.drawio": "05_图表/可编辑模板/建模论证闭环.drawio",
+    "建模论证闭环.svg": "05_图表/可编辑模板/建模论证闭环.svg",
+    "建模论证闭环.png": "05_图表/可编辑模板/建模论证闭环.png",
+    "典型时刻四联图.drawio": "05_图表/可编辑模板/典型时刻四联图.drawio",
+    "典型时刻四联图.svg": "05_图表/可编辑模板/典型时刻四联图.svg",
+    "典型时刻四联图.png": "05_图表/可编辑模板/典型时刻四联图.png",
 }
 
 
@@ -50,7 +63,9 @@ def ensure_safe_target(target: Path) -> None:
 def create_project(target: Path) -> None:
     repository_root = Path(__file__).resolve().parents[1]
     templates = repository_root / "templates"
+    assets = repository_root / "assets" / "可编辑图示"
     missing = [name for name in TEMPLATE_TARGETS if not (templates / name).is_file()]
+    missing.extend(name for name in ASSET_TARGETS if not (assets / name).is_file())
     if missing:
         raise FileNotFoundError("缺少模板：" + "、".join(missing))
 
@@ -62,6 +77,13 @@ def create_project(target: Path) -> None:
     for source_name, relative_target in TEMPLATE_TARGETS.items():
         source = templates / source_name
         destination = target / relative_target
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, destination)
+
+    for source_name, relative_target in ASSET_TARGETS.items():
+        source = assets / source_name
+        destination = target / relative_target
+        destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, destination)
 
     readme = target / "README.md"

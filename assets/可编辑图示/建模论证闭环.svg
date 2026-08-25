@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800" role="img" aria-label="建模论证闭环模板">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#374151" /></marker>
+    <marker id="arrow-warn" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#B45309" /></marker>
+  </defs>
+  <rect width="1400" height="800" fill="#FFFFFF" />
+  <rect x="30" y="30" width="1340" height="285" fill="#F5F7FA" stroke="#B8C2CC" stroke-width="2" />
+  <rect x="30" y="375" width="1340" height="285" fill="#FAFAF8" stroke="#B8C2CC" stroke-width="2" />
+  <g font-family="Microsoft YaHei, sans-serif" fill="#334155" font-size="18" font-weight="700">
+    <text x="50" y="62">模型定义</text><text x="50" y="407">证据闭环</text>
+  </g>
+  <g stroke="#374151" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
+    <path d="M315 183 H410" /><path d="M645 183 H740" /><path d="M975 183 H1070" />
+    <path d="M1187 226 V485" /><path d="M1070 528 H975" /><path d="M740 528 H645" /><path d="M410 528 H315" />
+  </g>
+  <g font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">
+    <rect x="80" y="140" width="235" height="86" rx="6" fill="#DCECF7" stroke="#4C84A8" stroke-width="2" /><text x="197.5" y="183" fill="#172B3A">材料与题意核验</text>
+    <rect x="410" y="140" width="235" height="86" rx="6" fill="#E4F1DD" stroke="#69995D" stroke-width="2" /><text x="527.5" y="183" fill="#263723">解释候选与用户确认</text>
+    <rect x="740" y="140" width="235" height="86" rx="6" fill="#FFF0C7" stroke="#C59227" stroke-width="2" /><text x="857.5" y="183" fill="#45340D">变量、目标与约束</text>
+    <rect x="1070" y="140" width="235" height="86" rx="6" fill="#F4DFEA" stroke="#A95F83" stroke-width="2" /><text x="1187.5" y="183" fill="#452638">模型方程与逐式解释</text>
+    <rect x="1070" y="485" width="235" height="86" rx="6" fill="#F4DFEA" stroke="#A95F83" stroke-width="2" /><text x="1187.5" y="528" fill="#452638">关键命题与证明</text>
+    <rect x="740" y="485" width="235" height="86" rx="6" fill="#FFF0C7" stroke="#C59227" stroke-width="2" /><text x="857.5" y="528" fill="#45340D">算法与可复现实现</text>
+    <rect x="410" y="485" width="235" height="86" rx="6" fill="#E4F1DD" stroke="#69995D" stroke-width="2" /><text x="527.5" y="528" fill="#263723">结果图表与逐图分析</text>
+    <rect x="80" y="485" width="235" height="86" rx="6" fill="#DCECF7" stroke="#4C84A8" stroke-width="2" /><text x="197.5" y="528" fill="#172B3A">验证与直接结论</text>
+  </g>
+  <path d="M197.5 571 V710 H527.5 V226" fill="none" stroke="#B45309" stroke-width="2.5" stroke-dasharray="9 7" marker-end="url(#arrow-warn)" />
+  <text x="350" y="738" font-family="Microsoft YaHei, sans-serif" font-size="15" fill="#92400E" text-anchor="middle">证据不足时返回解释、模型或算法</text>
+</svg>
