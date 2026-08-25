@@ -1,0 +1,48 @@
+<mxfile host="app.diagrams.net" version="26.0.4">
+  <diagram id="model-proof-loop" name="建模论证闭环">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="800" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="band-top" value="模型定义" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F7FA;strokeColor=#B8C2CC;strokeWidth=2;fontFamily=Microsoft YaHei;fontSize=18;fontStyle=1;fontColor=#334155;align=left;verticalAlign=top;spacingTop=14;spacingLeft=18;" parent="1" vertex="1">
+          <mxGeometry x="30" y="30" width="1340" height="285" as="geometry" />
+        </mxCell>
+        <mxCell id="band-bottom" value="证据闭环" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FAFAF8;strokeColor=#B8C2CC;strokeWidth=2;fontFamily=Microsoft YaHei;fontSize=18;fontStyle=1;fontColor=#334155;align=left;verticalAlign=top;spacingTop=14;spacingLeft=18;" parent="1" vertex="1">
+          <mxGeometry x="30" y="375" width="1340" height="285" as="geometry" />
+        </mxCell>
+        <mxCell id="n1" value="材料与题意核验" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#DCECF7;strokeColor=#4C84A8;strokeWidth=2;fontFamily=Microsoft YaHei;fontSize=18;fontStyle=1;fontColor=#172B3A;" parent="1" vertex="1">
+          <mxGeometry x="80" y="140" width="235" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="n2" value="解释候选与用户确认" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#E4F1DD;strokeColor=#69995D;strokeWidth=2;fontFamily=Microsoft YaHei;fontSize=18;fontStyle=1;fontColor=#263723;" parent="1" vertex="1">
+          <mxGeometry x="410" y="140" width="235" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="n3" value="变量、目标与约束" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FFF0C7;strokeColor=#C59227;strokeWidth=2;fontFamily=Microsoft YaHei;fontSize=18;fontStyle=1;fontColor=#45340D;" parent="1" vertex="1">
+          <mxGeometry x="740" y="140" width="235" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="n4" value="模型方程与逐式解释" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#F4DFEA;strokeColor=#A95F83;strokeWidth=2;fontFamily=Microsoft YaHei;fontSize=18;fontStyle=1;fontColor=#452638;" parent="1" vertex="1">
+          <mxGeometry x="1070" y="140" width="235" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="n5" value="关键命题与证明" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#F4DFEA;strokeColor=#A95F83;strokeWidth=2;fontFamily=Microsoft YaHei;fontSize=18;fontStyle=1;fontColor=#452638;" parent="1" vertex="1">
+          <mxGeometry x="1070" y="485" width="235" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="n6" value="算法与可复现实现" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FFF0C7;strokeColor=#C59227;strokeWidth=2;fontFamily=Microsoft YaHei;fontSize=18;fontStyle=1;fontColor=#45340D;" parent="1" vertex="1">
+          <mxGeometry x="740" y="485" width="235" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="n7" value="结果图表与逐图分析" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#E4F1DD;strokeColor=#69995D;strokeWidth=2;fontFamily=Microsoft YaHei;fontSize=18;fontStyle=1;fontColor=#263723;" parent="1" vertex="1">
+          <mxGeometry x="410" y="485" width="235" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="n8" value="验证与直接结论" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#DCECF7;strokeColor=#4C84A8;strokeWidth=2;fontFamily=Microsoft YaHei;fontSize=18;fontStyle=1;fontColor=#172B3A;" parent="1" vertex="1">
+          <mxGeometry x="80" y="485" width="235" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#374151;strokeWidth=2;endArrow=block;endFill=1;" parent="1" source="n1" target="n2" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#374151;strokeWidth=2;endArrow=block;endFill=1;" parent="1" source="n2" target="n3" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#374151;strokeWidth=2;endArrow=block;endFill=1;" parent="1" source="n3" target="n4" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#374151;strokeWidth=2;endArrow=block;endFill=1;" parent="1" source="n4" target="n5" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#374151;strokeWidth=2;endArrow=block;endFill=1;" parent="1" source="n5" target="n6" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#374151;strokeWidth=2;endArrow=block;endFill=1;" parent="1" source="n6" target="n7" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#374151;strokeWidth=2;endArrow=block;endFill=1;" parent="1" source="n7" target="n8" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="feedback" value="证据不足时返回解释、模型或算法" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#B45309;strokeWidth=2;dashed=1;dashPattern=7 5;endArrow=block;endFill=1;fontFamily=Microsoft YaHei;fontSize=15;fontColor=#92400E;labelBackgroundColor=#FFFFFF;" parent="1" source="n8" target="n2" edge="1"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="195" y="710" /><mxPoint x="527" y="710" /></Array></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

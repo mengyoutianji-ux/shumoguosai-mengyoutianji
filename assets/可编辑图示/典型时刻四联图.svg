@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-label="典型时刻四联图模板">
+  <rect width="1400" height="900" fill="#FFFFFF" />
+  <g fill="#F8FAFC" stroke="#64748B" stroke-width="2">
+    <rect x="60" y="50" width="620" height="330" />
+    <rect x="720" y="50" width="620" height="330" />
+    <rect x="60" y="430" width="620" height="330" />
+    <rect x="720" y="430" width="620" height="330" />
+  </g>
+  <g font-family="Microsoft YaHei, Noto Sans SC, sans-serif" fill="#64748B" font-size="18" text-anchor="middle">
+    <text x="370" y="210">在此放入同一视角、同一坐标范围的模型帧</text>
+    <text x="1030" y="210">标出首次满足判据的对象、边界与时刻</text>
+    <text x="370" y="590">标出最大响应、最不利状态或协同交接</text>
+    <text x="1030" y="590">标出最后满足判据或过程结束的状态</text>
+  </g>
+  <g font-family="Microsoft YaHei, Noto Sans SC, sans-serif" fill="#334155" font-size="18" font-weight="700">
+    <text x="76" y="356">(a) 起始状态  t=t0</text>
+    <text x="736" y="356">(b) 临界进入  t=tin</text>
+    <text x="76" y="736">(c) 关键状态  t=t*</text>
+    <text x="736" y="736">(d) 临界退出  t=tout</text>
+  </g>
+  <rect x="360" y="800" width="680" height="55" rx="4" fill="#FFF7D6" stroke="#C99A2E" stroke-width="2" />
+  <text x="700" y="835" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="17" fill="#4B3A12" text-anchor="middle">共用图例：对象｜轨迹｜作用区域｜目标｜临界边界</text>
+</svg>
