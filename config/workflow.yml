@@ -2,14 +2,14 @@ version: "0.2.0"
 rules_effective_date: "2026-08-24"
 
 project:
-  default_root: "E:\\2026数模模拟"
+  default_root: "<PROJECT_ROOT>"
   preserve_originals: true
   output_in_separate_directory: true
   read_all_materials_before_modeling: true
   report_blocking_ambiguities_first: true
 
 python:
-  preferred_executable: D:\我的资料\大一\python\.venv\Scripts\python.exe
+  preferred_executable: <PYTHON_EXECUTABLE>
   expected_version: "3.13"
   allow_system_python: false
   allow_network_install: false

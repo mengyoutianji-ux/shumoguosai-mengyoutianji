@@ -16,7 +16,8 @@
 3. 创建一个新的项目骨架：
 
    ```powershell
-   & "D:\我的资料\大一\python\.venv\Scripts\python.exe" .\scripts\new_project.py "E:\2026数模模拟\第四次"
+   $PythonExe = "<PYTHON_EXECUTABLE>"
+   & $PythonExe .\scripts\new_project.py "<PROJECT_DIRECTORY>"
    ```
 
    如果首选 Python 路径不存在，先修复或明确替换 `config/workflow.yml` 中的配置，不要联网安装新环境。
@@ -25,7 +26,8 @@
 5. 完成后运行仓库自检：
 
    ```powershell
-   & "D:\我的资料\大一\python\.venv\Scripts\python.exe" .\scripts\validate_repository.py
+   $PythonExe = "<PYTHON_EXECUTABLE>"
+   & $PythonExe .\scripts\validate_repository.py
    ```
 
 ## 仓库结构
