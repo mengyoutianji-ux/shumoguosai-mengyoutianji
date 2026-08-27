@@ -28,7 +28,7 @@
 
 ## 运行入口
 
-- Python：以工作流仓库 `config/workflow.yml` 为准，运行前检查路径存在；
+- Python：通过工作流仓库 `scripts/get_workflow_python.ps1` 解析公开配置与本机覆盖，运行前检查路径存在；
 - 主程序：待填写；
 - 输入数据：待填写；
 - 主要输出：待填写。

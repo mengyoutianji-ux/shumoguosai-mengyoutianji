@@ -1,0 +1,8 @@
+# Copy this file to workflow.local.yml and set machine-specific absolute paths.
+# workflow.local.yml is ignored by Git and may only override the fields below.
+
+project:
+  default_root: "<PROJECT_ROOT>"
+
+python:
+  preferred_executable: <PYTHON_EXECUTABLE>

@@ -7,26 +7,34 @@
 ## 快速使用
 
 1. 从仓库根入口 [AGENTS.md](AGENTS.md) 开始；它会要求继续读取技能入口、当前版本规则和对应专题规范。
-2. 运行环境检查：
+2. 首次在一台机器上使用时，创建不会进入 Git 的本机覆盖配置，并填写绝对路径：
+
+   ```powershell
+   Copy-Item .\config\workflow.local.example.yml .\config\workflow.local.yml
+   ```
+
+   `workflow.local.yml` 只能覆盖 `project.default_root` 和 `python.preferred_executable`。规则版本、页数、精度和验证要求仍以公开的 `workflow.yml` 为准。
+
+3. 运行环境检查：
 
    ```powershell
    powershell -ExecutionPolicy Bypass -File .\scripts\check_environment.ps1
    ```
 
-3. 创建一个新的项目骨架：
+4. 创建一个新的项目骨架：
 
    ```powershell
-   $PythonExe = "<PYTHON_EXECUTABLE>"
+   $PythonExe = & .\scripts\get_workflow_python.ps1
    & $PythonExe .\scripts\new_project.py "<PROJECT_DIRECTORY>"
    ```
 
-   如果首选 Python 路径不存在，先修复或明确替换 `config/workflow.yml` 中的配置，不要联网安装新环境。
+   如果首选 Python 路径不存在，修复 `config/workflow.local.yml`，不要把本机绝对路径写回公开配置，也不要联网安装新环境。
 
-4. 按顺序填写 `材料清单.csv`、`数据预处理记录.md`、`问题建模记录.md` 和 `结果核验表.csv`。
-5. 完成后运行仓库自检：
+5. 按顺序填写 `材料清单.csv`、`数据预处理记录.md`、`问题建模记录.md` 和 `结果核验表.csv`。
+6. 完成后运行仓库自检：
 
    ```powershell
-   $PythonExe = "<PYTHON_EXECUTABLE>"
+   $PythonExe = & .\scripts\get_workflow_python.ps1
    & $PythonExe .\scripts\validate_repository.py
    ```
 
@@ -35,7 +43,8 @@
 ```text
 .
 |-- AGENTS.md                         Codex 项目级约束
-|-- config/workflow.yml               可调整的工作流参数
+|-- config/workflow.yml               可公开的工作流参数
+|-- config/workflow.local.example.yml 本机覆盖配置示例
 |-- docs/                              分主题规范
 |-- templates/                         新项目模板
 |-- assets/                            可编辑 draw.io 图示与 SVG 预览
@@ -51,4 +60,4 @@
 
 ## 当前状态
 
-版本：`0.2.0`，规则生效日期为 `2026-08-24`。当前已建立根入口、版本冲突处理、完整主流程、关键证明规范、图表与动态图规范、项目模板、可编辑图示、仓库校验和 Codex 技能入口。仓库已配置 GitHub 远程地址；推送仍需单独确认发布边界和授权。
+版本：`0.3.0`，规则生效日期为 `2026-08-27`。当前已建立根入口、版本冲突处理、公开基础配置与本机私有覆盖、完整主流程、数据—模型—结果三层合理性规范、模型假设诊断、关键证明规范、图表与动态图规范、项目模板、可编辑图示、仓库校验和 Codex 技能入口。仓库已配置 GitHub 远程地址；推送仍需单独确认发布边界和授权。

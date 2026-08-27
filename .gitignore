@@ -42,6 +42,7 @@ deliverables/
 .env.*
 *.pem
 *.key
+/config/workflow.local.yml
 .venv/
 venv/
 __pycache__/
