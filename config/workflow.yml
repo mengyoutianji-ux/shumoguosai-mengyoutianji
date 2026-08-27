@@ -1,5 +1,7 @@
-version: "0.2.0"
-rules_effective_date: "2026-08-24"
+version: "0.3.0"
+rules_effective_date: "2026-08-27"
+
+# Keep machine-specific absolute paths in the ignored workflow.local.yml.
 
 project:
   default_root: "<PROJECT_ROOT>"
@@ -7,6 +9,7 @@ project:
   output_in_separate_directory: true
   read_all_materials_before_modeling: true
   report_blocking_ambiguities_first: true
+  preprocessing_evidence_chain_required: true
 
 python:
   preferred_executable: <PYTHON_EXECUTABLE>
@@ -41,6 +44,9 @@ paper:
   abstract_focus_items_per_question: "3-4"
   preprocessing_paragraph_lines: "3-4"
   bold_items_per_paragraph: "3-5"
+  abstract_bold_regions_max: 4
+  abstract_require_model_build_reason_advantage: true
+  final_improvement_lines: "3-4"
   table_latex_font: "\\zihao{-5}"
   table_content_prefer_single_line: true
   conclusion_boxed: false
@@ -59,6 +65,10 @@ paper:
 
 model_expression:
   explain_each_substantive_formula: true
+  explain_model_transition: true
+  explain_model_choice_and_advantage: true
+  justify_custom_metrics_and_thresholds: true
+  data_driven_thresholds_training_only: true
   prove_conclusion_critical_conditions: true
   keep_problem_facts_out_of_assumptions: true
   optimization_use_braced_system: true
@@ -76,5 +86,8 @@ validation:
   inspect_near_perfect_fit: true
   require_out_of_sample_evidence_when_applicable: true
   require_positive_validation_chain: true
+  require_model_assumption_diagnostics: true
+  distinguish_selection_diagnostics_sensitivity: true
+  require_three_layer_reasonableness: true
   require_render_review_for_final_document: true
   require_key_proof_record: true

@@ -13,13 +13,21 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILL_NAME = "mathematical-modeling-workflow"
+LOCAL_OVERRIDE_PATH = "config/workflow.local.yml"
+LOCAL_OVERRIDE_KEYS = {
+    "project.default_root",
+    "python.preferred_executable",
+}
 
 REQUIRED_PATHS = (
+    ".gitignore",
     "README.md",
     "AGENTS.md",
     "config/workflow.yml",
+    "config/workflow.local.example.yml",
     "docs/工作流总览.md",
     "docs/规则版本与冲突处理.md",
+    "docs/数据模型与结果合理性规范.md",
     "docs/建模与统计规范.md",
     "docs/建模表达与关键证明规范.md",
     "docs/论文写作规范.md",
@@ -39,6 +47,8 @@ REQUIRED_PATHS = (
     "templates/参考论文写作特征记录.md",
     "templates/结果核验表.csv",
     "templates/最终检查清单.md",
+    "scripts/check_environment.ps1",
+    "scripts/get_workflow_python.ps1",
     "scripts/new_project.py",
     f"skills/{SKILL_NAME}/SKILL.md",
     f"skills/{SKILL_NAME}/agents/openai.yaml",
@@ -118,6 +128,7 @@ def validate_root_entry(errors: list[str]) -> None:
         "skills/mathematical-modeling-workflow/SKILL.md",
         "docs/规则版本与冲突处理.md",
         "docs/工作流总览.md",
+        "docs/数据模型与结果合理性规范.md",
     )
     for target in required_links:
         if target not in text:
@@ -163,9 +174,10 @@ def validate_config(errors: list[str]) -> None:
         return
     text = config.read_text(encoding="utf-8")
     required_tokens = (
-        'version: "0.2.0"',
-        'rules_effective_date: "2026-08-24"',
-        "preferred_executable:",
+        'version: "0.3.0"',
+        'rules_effective_date: "2026-08-27"',
+        'default_root: "<PROJECT_ROOT>"',
+        "preferred_executable: <PYTHON_EXECUTABLE>",
         "allow_system_python: false",
         "allow_network_install: false",
         "minimum_raster_dpi: 300",
@@ -173,16 +185,72 @@ def validate_config(errors: list[str]) -> None:
         "front_matter_max_pages: 4",
         "abstract_max_pages: 1",
         'abstract_preface_lines: "3-4"',
+        "abstract_bold_regions_max: 4",
+        "abstract_require_model_build_reason_advantage: true",
+        'final_improvement_lines: "3-4"',
         'question_1: {min: 5.50, max: 6.25}',
         'other_questions: {min: 4.40, max: 4.75}',
         'table_latex_font: "\\\\zihao{-5}"',
         'representative_frame_layout: "2x2"',
         "prove_conclusion_critical_conditions: true",
+        "justify_custom_metrics_and_thresholds: true",
+        "data_driven_thresholds_training_only: true",
         "inspect_near_perfect_fit: true",
+        "require_model_assumption_diagnostics: true",
+        "distinguish_selection_diagnostics_sensitivity: true",
+        "require_three_layer_reasonableness: true",
     )
     for token in required_tokens:
         if token not in text:
             errors.append(f"配置缺少关键项：{token}")
+
+
+def validate_local_override(errors: list[str]) -> None:
+    ignore_file = ROOT / ".gitignore"
+    if ignore_file.is_file():
+        ignore_lines = {
+            line.strip()
+            for line in ignore_file.read_text(encoding="utf-8").splitlines()
+            if line.strip() and not line.lstrip().startswith("#")
+        }
+        if f"/{LOCAL_OVERRIDE_PATH}" not in ignore_lines:
+            errors.append(f".gitignore 未排除本机配置：{LOCAL_OVERRIDE_PATH}")
+
+    example = ROOT / "config" / "workflow.local.example.yml"
+    if example.is_file():
+        example_text = example.read_text(encoding="utf-8")
+        for token in ('default_root: "<PROJECT_ROOT>"', "preferred_executable: <PYTHON_EXECUTABLE>"):
+            if token not in example_text:
+                errors.append(f"本机配置示例缺少占位符：{token}")
+
+    local = ROOT / LOCAL_OVERRIDE_PATH
+    if not local.is_file():
+        return
+
+    found: set[str] = set()
+    current_section: str | None = None
+    for line_number, raw_line in enumerate(local.read_text(encoding="utf-8").splitlines(), start=1):
+        stripped = raw_line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        indent = len(raw_line) - len(raw_line.lstrip(" "))
+        if indent == 0 and stripped.endswith(":"):
+            current_section = stripped[:-1].strip()
+            if current_section not in {"project", "python"}:
+                errors.append(f"本机配置包含不允许的顶层节：第 {line_number} 行")
+            continue
+        if indent == 2 and current_section and ":" in stripped:
+            key = stripped.split(":", 1)[0].strip()
+            qualified = f"{current_section}.{key}"
+            found.add(qualified)
+            if qualified not in LOCAL_OVERRIDE_KEYS:
+                errors.append(f"本机配置包含不允许的字段：{qualified}")
+            continue
+        errors.append(f"本机配置结构无法识别：第 {line_number} 行")
+
+    missing = LOCAL_OVERRIDE_KEYS - found
+    for key in sorted(missing):
+        errors.append(f"本机配置缺少字段：{key}")
 
 
 def validate_diagram_assets(errors: list[str]) -> None:
@@ -236,6 +304,8 @@ def validate_repository_files(errors: list[str]) -> None:
     for path in ROOT.rglob("*"):
         if not path.is_file() or ".git" in path.parts:
             continue
+        if relative(path) == LOCAL_OVERRIDE_PATH:
+            continue
         if path.suffix.lower() in FORBIDDEN_SUFFIXES:
             errors.append(f"仓库包含默认禁止发布的文件类型：{relative(path)}")
 
@@ -248,6 +318,7 @@ def main() -> int:
     validate_markdown_links(errors)
     validate_csv_headers(errors)
     validate_config(errors)
+    validate_local_override(errors)
     validate_diagram_assets(errors)
     validate_repository_files(errors)
 
@@ -257,7 +328,13 @@ def main() -> int:
             print(f"- {error}")
         return 1
 
-    file_count = sum(1 for path in ROOT.rglob("*") if path.is_file() and ".git" not in path.parts)
+    file_count = sum(
+        1
+        for path in ROOT.rglob("*")
+        if path.is_file()
+        and ".git" not in path.parts
+        and relative(path) != LOCAL_OVERRIDE_PATH
+    )
     print(f"仓库校验通过：{file_count} 个文件。")
     return 0
 

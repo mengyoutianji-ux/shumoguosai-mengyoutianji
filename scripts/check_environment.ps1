@@ -1,25 +1,18 @@
 param(
-    [string]$ConfigPath = (Join-Path (Split-Path -Parent $PSScriptRoot) "config\workflow.yml")
+    [string]$ConfigPath = (Join-Path (Split-Path -Parent $PSScriptRoot) "config\workflow.yml"),
+    [string]$LocalConfigPath = (Join-Path (Split-Path -Parent $PSScriptRoot) "config\workflow.local.yml")
 )
 
 $ErrorActionPreference = "Stop"
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $OutputEncoding = [System.Text.Encoding]::UTF8
 
-if (-not (Test-Path -LiteralPath $ConfigPath -PathType Leaf)) {
-    Write-Error "Workflow config not found: $ConfigPath"
-    exit 1
+try {
+    $Resolver = Join-Path $PSScriptRoot "get_workflow_python.ps1"
+    $WorkflowPython = & $Resolver -ConfigPath $ConfigPath -LocalConfigPath $LocalConfigPath
 }
-
-$ConfigMatch = Select-String -LiteralPath $ConfigPath -Pattern '^\s*preferred_executable:\s*(.+?)\s*$' | Select-Object -First 1
-if (-not $ConfigMatch) {
-    Write-Error "Workflow config does not define preferred_executable."
-    exit 1
-}
-
-$WorkflowPython = $ConfigMatch.Matches[0].Groups[1].Value
-if (-not (Test-Path -LiteralPath $WorkflowPython -PathType Leaf)) {
-    Write-Error "Preferred Python does not exist: $WorkflowPython. Update config/workflow.yml explicitly. No network installation was attempted."
+catch {
+    Write-Error $_.Exception.Message
     exit 1
 }
 
